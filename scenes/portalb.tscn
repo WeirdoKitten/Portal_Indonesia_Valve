@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmw2lh764yihj"]
+
+[ext_resource type="Script" uid="uid://cy60rj4xfi02i" path="res://scripts/Portal.cs" id="1_m112s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlopg"]
+transparency = 1
+albedo_color = Color(1, 0, 0.0431373, 0.392157)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m112s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sdovf"]
+size = Vector3(1.30786, 2.28424, 0.0621648)
+
+[node name="Portal" type="Area3D" groups=["portal_b"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_m112s")
+TargetGroup = "portal_a"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.3035, 0, 0, 0, 1.20338, 0, 0, 0, 0.0134995, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_jlopg")
+mesh = SubResource("CapsuleMesh_m112s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00500488, -0.0150452, -0.00662875)
+shape = SubResource("BoxShape3D_sdovf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

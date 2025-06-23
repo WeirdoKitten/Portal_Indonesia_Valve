@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2yvwf4np56q"]
+
+[ext_resource type="PackedScene" uid="uid://70qtknpinq7a" path="res://assets/models/props/table_medium.glb" id="1_pgyjy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oeptt"]
+size = Vector3(1.9949, 1.07106, 1.87378)
+
+[node name="PickableTable" type="RigidBody3D"]
+
+[node name="table_medium" parent="." instance=ExtResource("1_pgyjy")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00456238, 0.553841, 0.0343018)
+shape = SubResource("BoxShape3D_oeptt")

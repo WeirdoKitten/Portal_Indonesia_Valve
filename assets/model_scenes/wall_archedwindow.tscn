@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://qi7bdiilkbaa"]
+
+[ext_resource type="PackedScene" uid="uid://xl35sthsym56" path="res://assets/models/building/wall_archedwindow_gated.glb" id="1_vjrvo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oiq7c"]
+size = Vector3(3.96362, 3.99854, 1)
+
+[node name="WallArchedwindow" type="StaticBody3D"]
+
+[node name="wall_archedwindow_gated2" parent="." instance=ExtResource("1_vjrvo")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00862038, 2.00806, 0)
+shape = SubResource("BoxShape3D_oiq7c")

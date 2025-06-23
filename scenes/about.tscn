@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpmwe03m2kagt"]
+
+[ext_resource type="Script" uid="uid://cbxjo1i2tnbhu" path="res://Scripts/Buttons/BackToMenu.cs" id="1_evqrl"]
+[ext_resource type="Texture2D" uid="uid://dgsot54846o65" path="res://Assets/Images/AboutMe.jpg" id="3_or2nl"]
+[ext_resource type="FontFile" uid="uid://irp7anmtpdm4" path="res://Assets/Fonts/AtemicaSans.otf" id="6_osrfk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mbdj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlvf4"]
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+border_width_left = 20
+border_width_top = 10
+border_width_right = 20
+border_width_bottom = 5
+border_color = Color(0.205117, 0.205117, 0.205117, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mbdj")
+
+[node name="AboutMe" type="Sprite2D" parent="Panel"]
+position = Vector2(565.982, 323.125)
+scale = Vector2(0.725954, 0.725953)
+texture = ExtResource("3_or2nl")
+
+[node name="BtnBack" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 130.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("6_osrfk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rlvf4")
+text = "Back"
+script = ExtResource("1_evqrl")

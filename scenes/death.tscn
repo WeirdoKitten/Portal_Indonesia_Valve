@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwol4y6ieuxpy"]
+
+[ext_resource type="Script" uid="uid://dt28xq3h74p3m" path="res://scripts/Death.cs" id="1_0hhgj"]
+[ext_resource type="Script" uid="uid://cbxjo1i2tnbhu" path="res://scripts/Buttons/BackToMenu.cs" id="2_w8wr1"]
+
+[node name="Death" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0hhgj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 105.0
+offset_right = 88.0
+offset_bottom = 174.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -124.0
+offset_right = 154.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="MainMenu" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+script = ExtResource("2_w8wr1")

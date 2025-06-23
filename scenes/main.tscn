@@ -1,0 +1,2393 @@
+[gd_scene load_steps=41 format=3 uid="uid://cqspofodlx70r"]
+
+[ext_resource type="PackedScene" uid="uid://btgbun8afoyku" path="res://scenes/pause.tscn" id="1_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://devppjd5bw0tv" path="res://assets/model_scenes/wall_doorway.tscn" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://bej52n1gxcug1" path="res://scripts/GameManager.cs" id="1_muem4"]
+[ext_resource type="PackedScene" uid="uid://b5v5pxd7dibn7" path="res://assets/model_scenes/wall_corner.tscn" id="1_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c52yxreg31a77" path="res://assets/model_scenes/wall.tscn" id="1_tipki"]
+[ext_resource type="PackedScene" uid="uid://qi7bdiilkbaa" path="res://assets/model_scenes/wall_archedwindow.tscn" id="2_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://qtir3qpgnolo" path="res://assets/model_scenes/wall_arched.tscn" id="2_tipki"]
+[ext_resource type="PackedScene" uid="uid://bhcb0lw1rj8qm" path="res://assets/model_scenes/wall_tsplit.tscn" id="4_85g3d"]
+[ext_resource type="PackedScene" uid="uid://lxrv6n0mxik8" path="res://scenes/bullet_normal.tscn" id="5_5q0nq"]
+[ext_resource type="PackedScene" uid="uid://bs52cbff0x2hi" path="res://scenes/bulleta.tscn" id="6_dgi5k"]
+[ext_resource type="PackedScene" uid="uid://ce3yarwajxapp" path="res://scenes/bulletb.tscn" id="7_j8jky"]
+[ext_resource type="PackedScene" uid="uid://8y7kxvks0knv" path="res://assets/model_scenes/torch_mounted.tscn" id="8_0ld40"]
+[ext_resource type="PackedScene" uid="uid://dmx07gfp3hobs" path="res://assets/model_scenes/ceilling.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://nk1o10u0pw5e" path="res://assets/model_scenes/wall_shelved.tscn" id="10_fv21b"]
+[ext_resource type="PackedScene" uid="uid://djqtp6dpwtkiv" path="res://assets/model_scenes/pillar.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dqxgv6v6rxf5g" path="res://assets/model_scenes/floor_wood.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/player.tscn" id="13_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://7632vi1egyq" path="res://assets/model_scenes/banner_mounted.tscn" id="13_tel4y"]
+[ext_resource type="PackedScene" uid="uid://10wi2k5ybrt3" path="res://assets/model_scenes/floor_stone.tscn" id="13_trceg"]
+[ext_resource type="PackedScene" uid="uid://dqe81aba70btl" path="res://scenes/enemy.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://bc1fe86qorlbb" path="res://assets/model_scenes/sword_shield.tscn" id="14_qkpxi"]
+[ext_resource type="PackedScene" uid="uid://7qutktuahxwq" path="res://scenes/heart.tscn" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://cr3hpm80gv4t2" path="res://assets/model_scenes/pickable_table2.tscn" id="16_muem4"]
+[ext_resource type="PackedScene" uid="uid://c2yvwf4np56q" path="res://assets/model_scenes/pickable_table.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" uid="uid://bt1x7qugkxe4f" path="res://scenes/npc.tscn" id="18_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://cvoc2u05jc3jk" path="res://assets/model_scenes/chair.tscn" id="19_5q0nq"]
+[ext_resource type="PackedScene" uid="uid://bul4823vrfspt" path="res://assets/model_scenes/barrel.tscn" id="20_dgi5k"]
+[ext_resource type="PackedScene" uid="uid://te6a8s2xuvdg" path="res://assets/model_scenes/chest.tscn" id="21_j8jky"]
+[ext_resource type="PackedScene" uid="uid://d3fj6v2d5vlm7" path="res://assets/model_scenes/coin_stack.tscn" id="22_kmb1v"]
+[ext_resource type="PackedScene" uid="uid://mw7nm0bgg267" path="res://assets/model_scenes/keg_decorated.tscn" id="23_fuf3a"]
+[ext_resource type="PackedScene" uid="uid://dcmredu51c41m" path="res://assets/model_scenes/keyring.tscn" id="24_pibwh"]
+[ext_resource type="PackedScene" uid="uid://b5dxx7lbgqhu" path="res://assets/model_scenes/plate_food.tscn" id="25_c6pm6"]
+[ext_resource type="PackedScene" uid="uid://7wncb2v2jvd4" path="res://assets/model_scenes/crates_stacked.tscn" id="26_5he1u"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo1nx"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_8gbba"]
+sky_material = SubResource("ProceduralSkyMaterial_bo1nx")
+
+[sub_resource type="Environment" id="Environment_jjvhh"]
+background_mode = 2
+sky = SubResource("Sky_8gbba")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_jkv2x"]
+vertices = PackedVector3Array(-6.31413, 5.3, -20.75, -6.31413, 5.3, -6.25, 8.43587, 5.3, -6.25, 8.43587, 5.3, -20.75, 0.435865, 0.8, -6.25, 0.935865, 0.8, -5.5, 1.68587, 0.8, -6.25, 7.68587, 0.8, -19.5, -5.56413, 0.8, -19.5, -5.56413, 0.8, -6.25, 7.68587, 0.8, -6.25, -18.3141, 13.3, -4.25, -18.3141, 13.3, 22.5, 20.4359, 13.3, 22.5, 20.4359, 13.3, -4.25, 17.9359, 0.8, 1.75, 17.9359, 0.8, 2.5, 19.6859, 0.8, 2.5, 19.6859, 0.8, -3.75, 17.1859, 0.8, -3.5, 18.1859, 0.8, -2.25, 18.1859, 0.8, -1.5, 17.1859, 0.8, 1, 11.6859, 0.8, 4.5, 15.4359, 0.8, 3.5, 14.9359, 0.8, 1.75, 10.9359, 0.8, 3.5, 14.9359, 0.8, -2.5, 16.4359, 0.8, -3.5, 9.43587, 0.8, -3.5, 14.9359, 0.8, -1.5, 17.1859, 0.8, -0.5, 15.9359, 0.8, 1, 15.9359, 0.8, -0.5, 9.43587, 0.8, 3.5, -8.31413, 0.8, 4.25, -8.31413, 0.8, 5, -4.81413, 0.8, 4.75, -4.81413, 0.8, 3.75, -12.8141, 0.8, -1.75, -14.8141, 0.8, 3, -10.5641, 0.8, 3.5, -9.06413, 0.8, 3.5, -11.8141, 0.8, -2.75, -4.81413, 0.8, -3.5, -11.8141, 0.8, -3.5, -14.5641, 0.8, -1.75, 0.685865, 0.8, -2.5, -0.314135, 0.8, -3.5, -4.31413, 0.8, 3.25, -2.31413, 0.8, 3.25, -1.81413, 0.8, 4, 7.68587, 0.8, 6, 8.43587, 0.8, 5.25, 8.43587, 0.8, 4.25, 1.68587, 0.8, -2.5, 2.18587, 0.8, -3.5, -1.81413, 0.8, 5.5, -17.0641, 2.8, 0, -17.0641, 2.8, 2.25, -16.3141, 2.8, 2.25, -16.3141, 2.8, 0, 19.1859, 0.8, 10.75, 19.6859, 0.8, 8.5, 19.1859, 0.8, 8.25, 17.4359, 0.8, 3.75, 19.1859, 0.8, 6.75, 19.6859, 0.8, 5.75, 8.18587, 0.8, 9, 7.68587, 0.8, 8.5, 7.68587, 0.8, 21.75, 16.6859, 0.8, 21.75, 16.6859, 0.8, 19.25, 11.6859, 0.8, 8.5, 18.4359, 0.8, 18.5, 19.6859, 0.8, 18.75, 19.6859, 0.8, 12.5, 19.1859, 0.8, 12.25, 11.1859, 0.8, 9, -12.8141, 0.8, 7.25, -12.3141, 0.8, 8, -10.5641, 0.8, 6.5, -11.5641, 0.8, 5.75, -11.5641, 0.8, 4.25, -15.3141, 0.8, 3.75, -14.5641, 0.8, 7.25, -17.5641, 0.8, 8.75, -15.0641, 0.8, 8.75, -17.5641, 0.8, 3.75, -12.5641, 0.8, 9.75, -12.3141, 0.8, 10, -10.5641, 0.8, 10, -9.06413, 0.8, 6.5, -2.31413, 0.8, 6, -10.3141, 0.8, 12.5, -11.8141, 0.8, 12.5, -13.3141, 0.8, 20, -8.31413, 0.8, 5.75, -9.81413, 0.8, 11, -4.06413, 0.8, 6, -13.5641, 0.8, 21.75, -12.8141, 0.8, 10.5, -14.5641, 0.8, 10, -13.8141, 0.8, 19.25, -16.0641, 0.8, 18.75, -15.8141, 0.8, 19.25, -12.8141, 0.8, 11.75, -17.5641, 0.8, 19, -17.5641, -7.2, 24.5, -17.5641, -7.2, 37.5, 19.6859, -7.2, 37.5, 19.6859, -7.2, 24.25, -18.3141, 13.3, 33, -18.3141, 13.3, 47.75, 20.4359, 13.3, 47.75, 20.4359, 13.3, 33, -0.0641346, 1.05, 45, 1.18587, 1.05, 44.5, 1.18587, 1.05, 39, -17.5641, 1.05, 39, -17.5641, 1.05, 45.75, -0.0641346, 1.05, 45.75, 19.6859, 1.05, 45.75, 19.6859, 1.05, 40.5, 19.1859, 1.05, 40.25, 2.43587, 1.05, 45.75, 1.68587, 1.05, 44.5, 19.1859, 1.05, 39)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 8), PackedInt32Array(6, 8, 7), PackedInt32Array(4, 9, 8), PackedInt32Array(7, 10, 6), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(20, 19, 18), PackedInt32Array(21, 20, 18), PackedInt32Array(15, 22, 17), PackedInt32Array(17, 22, 21), PackedInt32Array(17, 21, 18), PackedInt32Array(23, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(29, 28, 27), PackedInt32Array(29, 27, 30), PackedInt32Array(22, 31, 21), PackedInt32Array(33, 31, 32), PackedInt32Array(32, 31, 22), PackedInt32Array(33, 25, 30), PackedInt32Array(30, 25, 26), PackedInt32Array(30, 26, 34), PackedInt32Array(30, 34, 29), PackedInt32Array(33, 32, 25), PackedInt32Array(36, 35, 37), PackedInt32Array(37, 35, 38), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 39), PackedInt32Array(42, 39, 43), PackedInt32Array(35, 42, 38), PackedInt32Array(38, 42, 44), PackedInt32Array(44, 42, 43), PackedInt32Array(44, 43, 45), PackedInt32Array(40, 46, 39), PackedInt32Array(48, 47, 44), PackedInt32Array(44, 47, 50), PackedInt32Array(44, 50, 49), PackedInt32Array(47, 51, 50), PackedInt32Array(49, 38, 44), PackedInt32Array(54, 53, 52), PackedInt32Array(51, 47, 55), PackedInt32Array(29, 34, 54), PackedInt32Array(29, 55, 56), PackedInt32Array(51, 55, 57), PackedInt32Array(57, 55, 52), PackedInt32Array(52, 55, 54), PackedInt32Array(54, 55, 29), PackedInt32Array(61, 60, 58), PackedInt32Array(58, 60, 59), PackedInt32Array(64, 63, 62), PackedInt32Array(16, 17, 65), PackedInt32Array(65, 17, 67), PackedInt32Array(65, 67, 66), PackedInt32Array(70, 69, 68), PackedInt32Array(72, 71, 70), PackedInt32Array(65, 66, 64), PackedInt32Array(24, 65, 23), PackedInt32Array(23, 65, 73), PackedInt32Array(76, 75, 74), PackedInt32Array(76, 74, 77), PackedInt32Array(77, 74, 72), PackedInt32Array(64, 62, 65), PackedInt32Array(65, 62, 73), PackedInt32Array(73, 62, 78), PackedInt32Array(77, 72, 62), PackedInt32Array(62, 72, 78), PackedInt32Array(78, 72, 68), PackedInt32Array(68, 72, 70), PackedInt32Array(79, 82, 80), PackedInt32Array(80, 82, 81), PackedInt32Array(40, 41, 83), PackedInt32Array(82, 79, 83), PackedInt32Array(83, 79, 85), PackedInt32Array(83, 85, 84), PackedInt32Array(83, 84, 40), PackedInt32Array(87, 86, 85), PackedInt32Array(85, 86, 84), PackedInt32Array(84, 86, 88), PackedInt32Array(90, 89, 91), PackedInt32Array(91, 89, 80), PackedInt32Array(91, 80, 81), PackedInt32Array(91, 81, 92), PackedInt32Array(57, 52, 93), PackedInt32Array(93, 52, 69), PackedInt32Array(96, 95, 94), PackedInt32Array(97, 36, 37), PackedInt32Array(94, 98, 93), PackedInt32Array(97, 37, 92), PackedInt32Array(92, 37, 99), PackedInt32Array(91, 92, 98), PackedInt32Array(98, 92, 99), PackedInt32Array(98, 99, 93), PackedInt32Array(96, 94, 100), PackedInt32Array(100, 94, 93), PackedInt32Array(100, 93, 69), PackedInt32Array(100, 69, 70), PackedInt32Array(90, 101, 89), PackedInt32Array(89, 101, 102), PackedInt32Array(95, 96, 103), PackedInt32Array(105, 104, 103), PackedInt32Array(103, 104, 95), PackedInt32Array(101, 106, 102), PackedInt32Array(86, 87, 102), PackedInt32Array(102, 106, 86), PackedInt32Array(106, 95, 86), PackedInt32Array(86, 95, 104), PackedInt32Array(86, 104, 107), PackedInt32Array(109, 108, 110), PackedInt32Array(110, 108, 111), PackedInt32Array(115, 114, 112), PackedInt32Array(112, 114, 113), PackedInt32Array(117, 116, 118), PackedInt32Array(118, 116, 119), PackedInt32Array(119, 116, 120), PackedInt32Array(116, 121, 120), PackedInt32Array(123, 122, 124), PackedInt32Array(124, 122, 125), PackedInt32Array(126, 117, 118), PackedInt32Array(126, 118, 125), PackedInt32Array(125, 118, 124), PackedInt32Array(124, 118, 127)]
+geometry_source_geometry_mode = 1
+agent_radius = 0.75
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbj1t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muem4"]
+transparency = 1
+albedo_color = Color(0.607843, 1, 1, 0.392157)
+emission_enabled = true
+emission = Color(0, 0, 0.870588, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_dp3eg"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_muem4")
+FinishAreaPath = NodePath("FinishArea")
+
+[node name="NPCLayer" type="CanvasLayer" parent="."]
+
+[node name="Chat" type="Control" parent="NPCLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="NPCLayer/Chat"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -237.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="NPCLayer/Chat/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Selamat datang, Nusa. Kamu berada di level Tutorial, tekan \"klik kanan\"
+jika ingin informasi lainnya. Informasi ini bisa membuatmu menyelesaikan
+tutorial ini dengan mudah."
+
+[node name="Label2" type="Label" parent="NPCLayer/Chat/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Di luar sana, terdapat monster abadi yang tak bisa mati. Namun, kamu dapat
+menembaknya dengan bola api untuk menjaga jarak dengan mereka.
+Mereka hanya akan  bereaksi saat kamu berada dalam jangkauan mereka."
+
+[node name="Label3" type="Label" parent="NPCLayer/Chat/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Jangkauan pendengaran mereka adalah 15 meter. Jika mereka mendekat,
+segera tembak dengan menggunakan \"klik kiri\" (bola api ungu)."
+
+[node name="Label4" type="Label" parent="NPCLayer/Chat/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Kamu juga mempunyai kekuatan bola api merah (tombol E)
+dan bola api biru (tombol Q) untuk membuka portal.
+Aktifkan kedua portal untuk teleportasi."
+
+[node name="Label5" type="Label" parent="NPCLayer/Chat/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Selanjutnya, terdapat beberapa objek seperti meja yang bisa kamu angkat
+menggunakan \"klik kanan\" untuk keluar dari sini. Jadi manfaatkanlah!!"
+
+[node name="Label6" type="Label" parent="NPCLayer/Chat/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Semoga informasi ini membantumu, Nusa. Selamat berpetualang.
+Selesaikan tutorial ini dengan pergi ke cahaya ungu di ujung sana."
+
+[node name="HeartLayer" type="CanvasLayer" parent="."]
+
+[node name="Heart" parent="HeartLayer" instance=ExtResource("16_jbj1t")]
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="PauseLayer" instance=ExtResource("1_jkv2x")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.663926, -0.747798, -2.6246e-08, 0.605686, -0.537753, 0.586485, -0.438573, 0.389383, 0.80996, 0, 6.14577, 1.55346)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jjvhh")
+
+[node name="Player" parent="." instance=ExtResource("13_a8y0u")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.861055, 0.864965, -16.3597)
+collision_layer = 2
+collision_mask = 5
+BulletNormalScene = ExtResource("5_5q0nq")
+BulletAScene = ExtResource("6_dgi5k")
+BulletBScene = ExtResource("7_j8jky")
+HeartUIPath = NodePath("../HeartLayer/Heart")
+
+[node name="Map" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="WallCorner" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -19, 0.5, -5)
+collision_mask = 0
+
+[node name="Wall5" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15, 0.5, -5)
+collision_mask = 0
+
+[node name="Wall4" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11, 0.5, -5)
+collision_mask = 0
+
+[node name="Wall3" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -20.949)
+collision_mask = 0
+
+[node name="Wall2" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -20.949)
+collision_mask = 0
+
+[node name="Wall" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, -20.949)
+collision_mask = 0
+
+[node name="WallCorner4" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.5, -20.949)
+collision_mask = 0
+
+[node name="WallCorner3" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -20.9489)
+collision_mask = 0
+
+[node name="WallArched6" parent="Map" instance=ExtResource("2_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0.5, -16.956)
+collision_mask = 0
+
+[node name="WallArched5" parent="Map" instance=ExtResource("2_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0.5, -12.966)
+collision_mask = 0
+
+[node name="WallArched4" parent="Map" instance=ExtResource("2_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0.5, -8.969)
+collision_mask = 0
+
+[node name="TorchMounted" parent="Map/WallArched4" instance=ExtResource("8_0ld40")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 1.5, 0)
+
+[node name="WallArched3" parent="Map" instance=ExtResource("2_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.5, -16.9563)
+collision_mask = 0
+
+[node name="WallArched2" parent="Map" instance=ExtResource("2_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.5, -12.966)
+collision_mask = 0
+
+[node name="WallArched" parent="Map" instance=ExtResource("2_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.5, -8.96864)
+collision_mask = 0
+
+[node name="TorchMounted" parent="Map/WallArched" instance=ExtResource("8_0ld40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 0)
+
+[node name="WallTsplit2" parent="Map" instance=ExtResource("4_85g3d")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7, 0.5, -5)
+collision_mask = 0
+
+[node name="Wall28" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 0.5, 23)
+collision_mask = 0
+
+[node name="Wall27" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 0.5, 23)
+collision_mask = 0
+
+[node name="Wall26" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0.5, 23)
+collision_mask = 0
+
+[node name="Wall25" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0.5, 23)
+collision_mask = 0
+
+[node name="Wall24" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 23)
+collision_mask = 0
+
+[node name="Wall23" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0.5, 23)
+collision_mask = 0
+
+[node name="Wall22" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 0.5, 23)
+collision_mask = 0
+
+[node name="Wall21" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 0.5, 23)
+collision_mask = 0
+
+[node name="Wall20" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 0.5, 23)
+collision_mask = 0
+
+[node name="WallTsplit8" parent="Map" instance=ExtResource("4_85g3d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 8.5, 23)
+
+[node name="WallTsplit7" parent="Map" instance=ExtResource("4_85g3d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 4.5, 23)
+
+[node name="WallTsplit6" parent="Map" instance=ExtResource("4_85g3d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0.5, 23)
+
+[node name="Wall19" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0.5, 19)
+collision_mask = 0
+
+[node name="Wall12" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0.5, 15)
+collision_mask = 0
+
+[node name="WallShelved2" parent="Map" instance=ExtResource("10_fv21b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0.5, 11)
+
+[node name="WallShelved" parent="Map" instance=ExtResource("10_fv21b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0.5, 7)
+
+[node name="Wall9" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0.5, 3)
+collision_mask = 0
+
+[node name="Wall8" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0.5, -1)
+collision_mask = 0
+
+[node name="WallCorner2" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, -5)
+collision_mask = 0
+
+[node name="Wall7" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 17, 0.5, -5)
+collision_mask = 0
+
+[node name="Wall6" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13, 0.5, -5)
+collision_mask = 0
+
+[node name="WallTsplit" parent="Map" instance=ExtResource("4_85g3d")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9, 0.5, -5)
+collision_mask = 0
+
+[node name="WallArchedwindow2" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -5)
+collision_mask = 0
+
+[node name="WallArchedwindow" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, -5)
+collision_mask = 0
+
+[node name="WallDoorway" parent="Map" instance=ExtResource("1_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -5)
+collision_mask = 0
+
+[node name="WallTsplit5" parent="Map" instance=ExtResource("4_85g3d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.0013, 8.48317, 23.0058)
+
+[node name="WallTsplit4" parent="Map" instance=ExtResource("4_85g3d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.0013, 4.48317, 23.0058)
+
+[node name="WallTsplit3" parent="Map" instance=ExtResource("4_85g3d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.0013, 0.483173, 23.0058)
+
+[node name="Wall18" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.5, 19)
+collision_mask = 0
+
+[node name="Wall13" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.5, 15)
+collision_mask = 0
+
+[node name="Wall14" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.5, 11)
+collision_mask = 0
+
+[node name="Wall15" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.5, 7)
+collision_mask = 0
+
+[node name="Wall16" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.5, 3)
+collision_mask = 0
+
+[node name="Wall17" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.5, -1)
+collision_mask = 0
+
+[node name="Wall29" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.5, 19)
+collision_mask = 0
+
+[node name="Wall30" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.5, 15)
+collision_mask = 0
+
+[node name="BannerMounted" parent="Map/Wall30" instance=ExtResource("13_tel4y")]
+
+[node name="WallArchedwindow5" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.5, 11)
+
+[node name="WallArchedwindow6" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.5, 7)
+
+[node name="Wall33" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.5, 3)
+collision_mask = 0
+
+[node name="BannerMounted" parent="Map/Wall33" instance=ExtResource("13_tel4y")]
+
+[node name="Wall34" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.5, -1)
+collision_mask = 0
+
+[node name="Wall35" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.5, 19)
+collision_mask = 0
+
+[node name="Wall36" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.5, 15)
+collision_mask = 0
+
+[node name="BannerMounted" parent="Map/Wall36" instance=ExtResource("13_tel4y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="WallArchedwindow8" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.5, 11)
+
+[node name="WallArchedwindow7" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.5, 7)
+
+[node name="Wall39" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.5, 3)
+collision_mask = 0
+
+[node name="BannerMounted" parent="Map/Wall39" instance=ExtResource("13_tel4y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Wall40" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.5, -1)
+collision_mask = 0
+
+[node name="Wall41" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 4.5, 23)
+collision_mask = 0
+
+[node name="Wall42" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 4.5, 23)
+collision_mask = 0
+
+[node name="WallArchedwindow4" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 4.5, 23)
+
+[node name="Wall44" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 4.5, 23)
+collision_mask = 0
+
+[node name="Wall46" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 4.5, 23)
+collision_mask = 0
+
+[node name="WallArchedwindow3" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 4.5, 23)
+
+[node name="Wall48" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 4.5, 23)
+collision_mask = 0
+
+[node name="Wall49" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 4.5, 23)
+collision_mask = 0
+
+[node name="Wall50" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 4.5, -5)
+collision_mask = 0
+
+[node name="Wall51" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 4.5, -5)
+collision_mask = 0
+
+[node name="Wall52" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 4.5, -5)
+collision_mask = 0
+
+[node name="Wall53" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 4.5, -5)
+collision_mask = 0
+
+[node name="Wall54" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 4.5, -5)
+collision_mask = 0
+
+[node name="Wall55" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 4.5, -5)
+collision_mask = 0
+
+[node name="Wall56" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 4.5, -5)
+collision_mask = 0
+
+[node name="Wall57" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 4.5, -5)
+collision_mask = 0
+
+[node name="Wall58" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 4.5, -5)
+collision_mask = 0
+
+[node name="WallCorner7" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -19, 4.5, -5)
+collision_mask = 0
+
+[node name="WallCorner8" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 4.5, -5)
+collision_mask = 0
+
+[node name="WallCorner9" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 4.5, 23)
+collision_mask = 0
+
+[node name="WallCorner10" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19, 4.5, 23)
+collision_mask = 0
+
+[node name="Wall59" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.5, 19)
+collision_mask = 0
+
+[node name="Wall60" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.5, 15)
+collision_mask = 0
+
+[node name="Wall61" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.5, 11)
+collision_mask = 0
+
+[node name="Wall62" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.5, 7)
+collision_mask = 0
+
+[node name="Wall63" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.5, 3)
+collision_mask = 0
+
+[node name="Wall64" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.5, -1)
+collision_mask = 0
+
+[node name="Wall65" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.5, 19)
+collision_mask = 0
+
+[node name="Wall66" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.5, 15)
+collision_mask = 0
+
+[node name="Wall67" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.5, 11)
+collision_mask = 0
+
+[node name="Wall68" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.5, 7)
+collision_mask = 0
+
+[node name="Wall69" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.5, 3)
+collision_mask = 0
+
+[node name="Wall70" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.5, -1)
+collision_mask = 0
+
+[node name="Wall71" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 8.5, 23)
+collision_mask = 0
+
+[node name="Wall72" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 8.5, 23)
+collision_mask = 0
+
+[node name="Wall73" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 8.5, 23)
+collision_mask = 0
+
+[node name="Wall74" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 8.5, 23)
+collision_mask = 0
+
+[node name="SwordShield" parent="Map/Wall74" instance=ExtResource("14_qkpxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 1.65394, 0.429939)
+
+[node name="Wall75" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 8.5, 23)
+collision_mask = 0
+
+[node name="SwordShield" parent="Map/Wall75" instance=ExtResource("14_qkpxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 1.65394, 0.429939)
+
+[node name="Wall76" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 8.5, 23)
+collision_mask = 0
+
+[node name="SwordShield" parent="Map/Wall76" instance=ExtResource("14_qkpxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 1.65394, 0.429939)
+
+[node name="Wall77" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 8.5, 23)
+collision_mask = 0
+
+[node name="Wall78" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 8.5, 23)
+collision_mask = 0
+
+[node name="Wall79" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 8.5, 23)
+collision_mask = 0
+
+[node name="Wall80" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 8.5, -5)
+collision_mask = 0
+
+[node name="Wall81" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 8.5, -5)
+collision_mask = 0
+
+[node name="Wall82" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 8.5, -5)
+collision_mask = 0
+
+[node name="Wall83" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 8.5, -5)
+collision_mask = 0
+
+[node name="Wall84" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 8.5, -5)
+collision_mask = 0
+
+[node name="Wall85" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 8.5, -5)
+collision_mask = 0
+
+[node name="Wall86" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 8.5, -5)
+collision_mask = 0
+
+[node name="Wall87" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 8.5, -5)
+collision_mask = 0
+
+[node name="Wall88" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 8.5, -5)
+collision_mask = 0
+
+[node name="WallCorner11" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -19, 8.5, -5)
+collision_mask = 0
+
+[node name="WallCorner12" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 8.5, -5)
+collision_mask = 0
+
+[node name="WallCorner13" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 8.5, 23)
+collision_mask = 0
+
+[node name="WallCorner14" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19, 8.5, 23)
+collision_mask = 0
+
+[node name="Ceilling4" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4.5, -7.5)
+collision_mask = 0
+
+[node name="Ceilling3" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.5, -7.5)
+collision_mask = 0
+
+[node name="Ceilling2" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.5, -7.5)
+collision_mask = 0
+
+[node name="Ceilling" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, -7.5)
+collision_mask = 0
+
+[node name="Ceilling5" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4.5, -11.5)
+collision_mask = 0
+
+[node name="Ceilling6" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.5, -11.5)
+collision_mask = 0
+
+[node name="Ceilling7" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.5, -11.5)
+collision_mask = 0
+
+[node name="Ceilling8" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, -11.5)
+collision_mask = 0
+
+[node name="Ceilling9" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4.5, -15.5)
+collision_mask = 0
+
+[node name="Ceilling10" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.5, -15.5)
+collision_mask = 0
+
+[node name="Ceilling11" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.5, -15.5)
+collision_mask = 0
+
+[node name="Ceilling12" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, -15.5)
+collision_mask = 0
+
+[node name="Ceilling13" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4.5, -19.5)
+collision_mask = 0
+
+[node name="Ceilling14" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.5, -19.5)
+collision_mask = 0
+
+[node name="Ceilling15" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.5, -19.5)
+collision_mask = 0
+
+[node name="Ceilling16" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, -19.5)
+collision_mask = 0
+
+[node name="Ceilling17" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.943, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling18" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.943, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling19" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.943, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling20" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.943, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling21" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.943, 12.5, 17.023)
+collision_mask = 0
+
+[node name="Ceilling22" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9431, 12.5, 17.0237)
+collision_mask = 0
+
+[node name="Ceilling23" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9431, 12.5, 17.0237)
+collision_mask = 0
+
+[node name="Ceilling24" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94306, 12.5, 17.0237)
+collision_mask = 0
+
+[node name="Ceilling25" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9431, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling26" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9431, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling27" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9431, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling28" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94306, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling29" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9431, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling30" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9431, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling31" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9431, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling32" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94306, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling33" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling34" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling35" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling36" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling37" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 17.023)
+collision_mask = 0
+
+[node name="Ceilling38" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 17.0237)
+collision_mask = 0
+
+[node name="Ceilling39" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 17.0237)
+collision_mask = 0
+
+[node name="Ceilling40" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 17.0237)
+collision_mask = 0
+
+[node name="Ceilling41" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling42" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling43" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling44" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling45" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling46" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling47" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling48" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling49" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling50" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 21.023)
+collision_mask = 0
+
+[node name="Ceilling51" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 17.0237)
+collision_mask = 0
+
+[node name="Ceilling52" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 17.0237)
+collision_mask = 0
+
+[node name="Ceilling53" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling54" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 13.023)
+collision_mask = 0
+
+[node name="Ceilling55" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling56" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 9.02301)
+collision_mask = 0
+
+[node name="Ceilling57" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9431, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling58" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9431, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling59" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9431, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling60" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94306, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling61" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling62" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling63" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling64" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling65" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling66" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 5.02301)
+collision_mask = 0
+
+[node name="Ceilling67" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9431, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling68" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9431, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling69" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9431, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling70" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94306, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling71" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling72" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling73" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling74" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling75" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling76" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 1.02301)
+collision_mask = 0
+
+[node name="Ceilling77" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9431, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling78" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9431, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling79" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9431, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling80" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94306, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling81" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling82" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling83" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling84" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling85" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Ceilling86" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, -2.97699)
+collision_mask = 0
+
+[node name="Pillar4" parent="Map" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8.5, 5)
+collision_mask = 0
+
+[node name="Pillar3" parent="Map" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.5, 5)
+collision_mask = 0
+
+[node name="Pillar" parent="Map" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.5, 5)
+collision_mask = 0
+
+[node name="Pillar5" parent="Map" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 8.5, 5)
+collision_mask = 0
+
+[node name="Pillar6" parent="Map" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4.5, 5)
+collision_mask = 0
+
+[node name="Pillar2" parent="Map" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 5)
+collision_mask = 0
+
+[node name="FloorWood2" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.45, -7.4)
+collision_mask = 0
+
+[node name="FloorWood" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 0.45, -7.4)
+collision_mask = 0
+
+[node name="FloorWood3" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, 0.45, -7.4)
+collision_mask = 0
+
+[node name="FloorWood4" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.45, -7.4)
+collision_mask = 0
+
+[node name="FloorWood5" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.45, -11.4)
+collision_mask = 0
+
+[node name="FloorWood6" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 0.45, -11.4)
+collision_mask = 0
+
+[node name="FloorWood7" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, 0.45, -11.4)
+collision_mask = 0
+
+[node name="FloorWood8" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.45, -11.4)
+collision_mask = 0
+
+[node name="FloorWood9" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.45, -15.4027)
+collision_mask = 0
+
+[node name="FloorWood10" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 0.45, -15.4027)
+collision_mask = 0
+
+[node name="FloorWood11" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, 0.45, -15.4027)
+collision_mask = 0
+
+[node name="FloorWood12" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.45, -15.4027)
+collision_mask = 0
+
+[node name="FloorWood13" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.45, -19.4027)
+collision_mask = 0
+
+[node name="FloorWood14" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 0.45, -19.4027)
+collision_mask = 0
+
+[node name="FloorWood15" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, 0.45, -19.4027)
+collision_mask = 0
+
+[node name="FloorWood16" parent="Map" instance=ExtResource("12_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.45, -19.4027)
+collision_mask = 0
+
+[node name="FloorStone" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone2" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone3" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone4" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone6" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.45, -3.4)
+collision_mask = 0
+
+[node name="Chair" parent="Map/FloorStone6" instance=ExtResource("19_5q0nq")]
+transform = Transform3D(-0.52565, 0, 0.850701, 0, 1, 0, -0.850701, 0, -0.52565, 0, 0, 1.46319)
+
+[node name="FloorStone7" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone5" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.45, -3.4)
+collision_mask = 0
+
+[node name="Chair" parent="Map/FloorStone5" instance=ExtResource("19_5q0nq")]
+transform = Transform3D(0.752622, 0, 0.658453, 0, 1, 0, -0.658453, 0, 0.752622, 5.98387, 0, 0)
+
+[node name="FloorStone8" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.45, -3.4)
+collision_mask = 0
+
+[node name="Barrel" parent="Map/FloorStone8" instance=ExtResource("20_dgi5k")]
+
+[node name="FloorStone9" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone10" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone11" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone12" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, -3.4)
+collision_mask = 0
+
+[node name="FloorStone13" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone14" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone15" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone16" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone17" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone18" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone19" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone20" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.45, 0.6)
+collision_mask = 0
+
+[node name="Chest" parent="Map/FloorStone20" instance=ExtResource("21_j8jky")]
+transform = Transform3D(0.0213263, 0, 0.999773, 0, 1, 0, -0.999773, 0, 0.0213263, -2.07435, 0, -2.66495)
+
+[node name="CoinStack" parent="Map/FloorStone20" instance=ExtResource("22_kmb1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.656867, 0, -2.71075)
+
+[node name="CegDecorated" parent="Map/FloorStone20" instance=ExtResource("23_fuf3a")]
+transform = Transform3D(0.00167556, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00167556, -1.4069, 0, 0.569635)
+
+[node name="FloorStone21" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone22" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone23" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone24" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 0.6)
+collision_mask = 0
+
+[node name="FloorStone25" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone26" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.45, 4.6)
+collision_mask = 0
+
+[node name="Keyring" parent="Map/FloorStone26" instance=ExtResource("24_pibwh")]
+
+[node name="FloorStone27" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone28" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone29" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.45, 4.6)
+collision_mask = 0
+
+[node name="Chair" parent="Map/FloorStone29" instance=ExtResource("19_5q0nq")]
+transform = Transform3D(0.166046, 0, -0.986118, 0, 1, 0, 0.986118, 0, 0.166046, 0, 0, -2.1114)
+
+[node name="FloorStone30" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone31" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone32" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone33" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone34" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone35" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.45, 4.6)
+collision_mask = 0
+
+[node name="PlateFood" parent="Map/FloorStone35" instance=ExtResource("25_c6pm6")]
+
+[node name="FloorStone36" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 4.6)
+collision_mask = 0
+
+[node name="FloorStone37" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone38" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone39" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone40" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.45, 8.6)
+collision_mask = 0
+
+[node name="CratesStacked" parent="Map/FloorStone40" instance=ExtResource("26_5he1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16255, 0, -1.54633)
+
+[node name="FloorStone41" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone42" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone43" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone44" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.45, 8.6)
+collision_mask = 0
+
+[node name="Chair" parent="Map/FloorStone44" instance=ExtResource("19_5q0nq")]
+transform = Transform3D(-0.994613, 0, -0.103661, 0, 1, 0, 0.103661, 0, -0.994613, 1.56024, 0, 0)
+
+[node name="FloorStone45" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.45, 8.6)
+collision_mask = 0
+
+[node name="Keyring" parent="Map/FloorStone45" instance=ExtResource("24_pibwh")]
+
+[node name="FloorStone46" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone47" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone48" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 8.6)
+collision_mask = 0
+
+[node name="FloorStone49" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone50" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone51" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone52" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone53" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone54" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone55" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone56" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone57" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone58" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.45, 12.6)
+collision_mask = 0
+
+[node name="Chair" parent="Map/FloorStone58" instance=ExtResource("19_5q0nq")]
+transform = Transform3D(0.0983645, 0, -0.99515, 0, 1, 0, 0.99515, 0, 0.0983645, 0, 0, -1.29571)
+
+[node name="FloorStone59" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone60" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 12.6)
+collision_mask = 0
+
+[node name="FloorStone61" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone62" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone63" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone64" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone65" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone66" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone67" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone68" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone69" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone70" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone71" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone72" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 16.6)
+collision_mask = 0
+
+[node name="FloorStone73" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone74" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone75" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone76" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone77" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.45, 20.6)
+collision_mask = 0
+
+[node name="CratesStacked" parent="Map/FloorStone77" instance=ExtResource("26_5he1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18638, 0, 0)
+
+[node name="FloorStone78" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone79" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone80" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.45, 20.6)
+collision_mask = 0
+
+[node name="Chest" parent="Map/FloorStone80" instance=ExtResource("21_j8jky")]
+transform = Transform3D(-0.817889, 0, 0.575377, 0, 1, 0, -0.575377, 0, -0.817889, -1.17842, 0, 0)
+
+[node name="CoinStack" parent="Map/FloorStone80" instance=ExtResource("22_kmb1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.648141, 0, 0)
+
+[node name="FloorStone81" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone82" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone83" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.45, 20.6)
+collision_mask = 0
+
+[node name="FloorStone84" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.45, 20.6)
+collision_mask = 0
+
+[node name="Wall89" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, -3.5, 23)
+collision_mask = 0
+
+[node name="Wall90" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, -3.5, 23)
+collision_mask = 0
+
+[node name="Wall91" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, -3.5, 23)
+collision_mask = 0
+
+[node name="Wall92" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, -3.5, 23)
+collision_mask = 0
+
+[node name="Wall93" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -3.5, 23)
+collision_mask = 0
+
+[node name="Wall94" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, -3.5, 23)
+collision_mask = 0
+
+[node name="Wall95" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, -3.5, 23)
+collision_mask = 0
+
+[node name="Wall96" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, -3.5, 23)
+collision_mask = 0
+
+[node name="Wall97" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, -3.5, 23)
+collision_mask = 0
+
+[node name="FloorStone85" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone86" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone87" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone88" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone89" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone90" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone91" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone92" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone93" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone94" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone95" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, -7.6, 25.4)
+collision_mask = 0
+
+[node name="FloorStone96" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone97" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone98" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone99" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone100" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone101" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone102" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone103" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone104" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone105" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone106" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, -7.6, 29.4)
+collision_mask = 0
+
+[node name="FloorStone107" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone108" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone109" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone110" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone111" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone112" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone113" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone114" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone115" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone116" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone117" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, -7.6, 33.4)
+collision_mask = 0
+
+[node name="FloorStone118" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone119" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone120" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone121" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone122" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone123" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone124" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone125" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone126" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone127" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, -7.6, 37.4)
+collision_mask = 0
+
+[node name="FloorStone128" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, -7.6, 37.4)
+collision_mask = 0
+
+[node name="Wall31" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, -7.5, 38.897)
+collision_mask = 0
+
+[node name="Wall32" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, -7.5, 38.897)
+collision_mask = 0
+
+[node name="Wall37" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, -7.5, 38.897)
+collision_mask = 0
+
+[node name="Wall38" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, -7.5, 38.897)
+collision_mask = 0
+
+[node name="Wall43" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -7.5, 38.897)
+collision_mask = 0
+
+[node name="Wall45" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, -7.5, 38.897)
+collision_mask = 0
+
+[node name="Wall47" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, -7.5, 38.897)
+collision_mask = 0
+
+[node name="Wall98" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, -7.5, 38.897)
+collision_mask = 0
+
+[node name="WallCorner23" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, -3.5, 38.797)
+
+[node name="WallCorner24" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, -7.5, 38.797)
+
+[node name="Wall99" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, -7.5, 38.897)
+collision_mask = 0
+
+[node name="WallCorner21" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.002, -3.5, 38.897)
+
+[node name="WallCorner22" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19, -7.5, 38.897)
+
+[node name="Wall100" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, -3.5, 38.897)
+collision_mask = 0
+
+[node name="Wall101" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, -3.5, 38.897)
+collision_mask = 0
+
+[node name="Wall102" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, -3.5, 38.897)
+collision_mask = 0
+
+[node name="Wall103" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, -3.5, 38.897)
+collision_mask = 0
+
+[node name="Wall104" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -3.5, 38.897)
+collision_mask = 0
+
+[node name="Wall105" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, -3.5, 38.897)
+collision_mask = 0
+
+[node name="Wall106" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, -3.5, 38.897)
+collision_mask = 0
+
+[node name="Wall107" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, -3.5, 38.897)
+collision_mask = 0
+
+[node name="Wall108" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, -3.5, 38.897)
+collision_mask = 0
+
+[node name="FloorStone129" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone130" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone131" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone132" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone133" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone134" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone135" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone136" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone137" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone138" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone139" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.5, 40.8276)
+collision_mask = 0
+
+[node name="FloorStone140" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499634, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone141" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49963, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone142" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4996, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone143" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49963, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone144" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4996, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone145" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4996, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone146" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3035, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone147" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3035, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone148" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30355, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone149" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="FloorStone150" parent="Map" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30355, 0.5, 44.8276)
+collision_mask = 0
+
+[node name="Wall109" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 0.500117, 47.0104)
+collision_mask = 0
+
+[node name="Wall110" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 0.500117, 47.0104)
+collision_mask = 0
+
+[node name="Wall111" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0.500117, 47.0104)
+collision_mask = 0
+
+[node name="Wall112" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0.500117, 47.0104)
+collision_mask = 0
+
+[node name="Wall114" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0.500117, 47.0104)
+collision_mask = 0
+
+[node name="WallDoorway2" parent="Map" instance=ExtResource("1_jyhfs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.500117, 47.0104)
+
+[node name="Wall115" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 0.500117, 47.0104)
+collision_mask = 0
+
+[node name="Wall116" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 0.500117, 47.0104)
+collision_mask = 0
+
+[node name="WallCorner17" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 21, 8.50012, 47.0104)
+
+[node name="WallCorner16" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 21, 4.50012, 47.0104)
+
+[node name="WallCorner15" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 21, 0.500117, 47.0104)
+
+[node name="Wall117" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 0.500117, 47.0104)
+collision_mask = 0
+
+[node name="WallCorner18" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19, 8.50012, 47.0104)
+
+[node name="WallCorner19" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19, 4.50012, 47.0104)
+
+[node name="WallCorner20" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19, 0.500117, 47.0104)
+
+[node name="Wall118" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall119" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall120" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall121" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall122" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall123" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall124" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall125" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall126" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 4.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall127" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall128" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall129" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall130" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall131" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall132" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall133" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall134" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Wall135" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 8.50012, 47.0104)
+collision_mask = 0
+
+[node name="Ceilling87" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.943, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling88" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.943, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling89" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.943, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling90" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.943, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling91" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling92" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling93" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling94" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling95" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling96" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 46.4)
+collision_mask = 0
+
+[node name="Ceilling97" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.943, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling98" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.943, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling99" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.943, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling100" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.943, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling101" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling102" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling103" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling104" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling105" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling106" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 42.4)
+collision_mask = 0
+
+[node name="Ceilling107" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.943, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling108" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.943, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling109" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.943, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling110" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.943, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling111" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling112" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling113" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling114" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling115" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling116" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 38.4)
+collision_mask = 0
+
+[node name="Ceilling117" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.943, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling118" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.943, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling119" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.943, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling120" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.943, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling121" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling122" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling123" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling124" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling125" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Ceilling126" parent="Map" instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12.5, 34.4)
+collision_mask = 0
+
+[node name="Wall136" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.499651, 43.0101)
+collision_mask = 0
+
+[node name="Wall137" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.499651, 39.0101)
+collision_mask = 0
+
+[node name="Wall138" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.499651, 35.0101)
+collision_mask = 0
+
+[node name="Wall139" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.499651, 31.0101)
+collision_mask = 0
+
+[node name="Wall140" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 0.499651, 27.0101)
+collision_mask = 0
+
+[node name="Wall141" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.49965, 43.0101)
+collision_mask = 0
+
+[node name="BannerMounted" parent="Map/Wall141" instance=ExtResource("13_tel4y")]
+
+[node name="WallArchedwindow9" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.49965, 39.0101)
+
+[node name="WallArchedwindow10" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.49965, 35.0101)
+
+[node name="Wall142" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.49965, 31.0101)
+collision_mask = 0
+
+[node name="BannerMounted" parent="Map/Wall142" instance=ExtResource("13_tel4y")]
+
+[node name="Wall143" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 4.49965, 27.0101)
+collision_mask = 0
+
+[node name="Wall144" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.49965, 43.0101)
+collision_mask = 0
+
+[node name="Wall145" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.49965, 39.0101)
+collision_mask = 0
+
+[node name="Wall146" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.49965, 35.0101)
+collision_mask = 0
+
+[node name="Wall11" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.49965, 31.0101)
+
+[node name="Wall148" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 8.49965, 27.0101)
+collision_mask = 0
+
+[node name="Wall149" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0.50991, 43.0113)
+collision_mask = 0
+
+[node name="WallShelved3" parent="Map" instance=ExtResource("10_fv21b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0.50991, 39.0113)
+
+[node name="WallShelved4" parent="Map" instance=ExtResource("10_fv21b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0.50991, 35.0113)
+
+[node name="Wall10" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0.50991, 31.0113)
+collision_mask = 0
+
+[node name="Wall150" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.50991, 43.0113)
+collision_mask = 0
+
+[node name="BannerMounted" parent="Map/Wall150" instance=ExtResource("13_tel4y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="WallArchedwindow11" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.50991, 39.0113)
+
+[node name="WallArchedwindow12" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.50991, 35.0113)
+
+[node name="Wall151" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.50991, 31.0113)
+collision_mask = 0
+
+[node name="BannerMounted" parent="Map/Wall151" instance=ExtResource("13_tel4y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Wall152" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.50991, 43.0113)
+collision_mask = 0
+
+[node name="Wall153" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.50991, 39.0113)
+collision_mask = 0
+
+[node name="Wall154" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.50991, 35.0113)
+collision_mask = 0
+
+[node name="Wall155" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.50991, 31.0113)
+collision_mask = 0
+
+[node name="WallArchedwindow13" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, -7.51072, 34.8013)
+
+[node name="Wall156" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, -7.51072, 30.8013)
+collision_mask = 0
+
+[node name="Wall157" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, -7.51072, 26.8013)
+collision_mask = 0
+
+[node name="Wall158" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, -3.51072, 34.8013)
+collision_mask = 0
+
+[node name="Wall147" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, -3.51072, 30.8013)
+
+[node name="Wall160" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, -3.51072, 26.8013)
+collision_mask = 0
+
+[node name="Wall161" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0.50953, 27.0104)
+collision_mask = 0
+
+[node name="Wall162" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 4.50953, 27.0104)
+collision_mask = 0
+
+[node name="Wall163" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 8.50953, 27.0104)
+collision_mask = 0
+
+[node name="Wall164" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -7.50389, 34.8929)
+collision_mask = 0
+
+[node name="Wall165" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -7.50389, 30.8929)
+collision_mask = 0
+
+[node name="WallArchedwindow14" parent="Map" instance=ExtResource("2_o6xl0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -7.50389, 26.8929)
+
+[node name="Wall166" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -3.50389, 34.8929)
+collision_mask = 0
+
+[node name="Wall167" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -3.50389, 30.8929)
+collision_mask = 0
+
+[node name="Wall168" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -3.50389, 26.8929)
+collision_mask = 0
+
+[node name="WallCorner5" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -3.5, 23)
+
+[node name="WallCorner6" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, -7.5, 23)
+
+[node name="Wall113" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15, -7.5, 23)
+collision_mask = 0
+
+[node name="Wall159" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11, -7.5, 23)
+collision_mask = 0
+
+[node name="Wall169" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, -7.5, 23)
+collision_mask = 0
+
+[node name="Wall170" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, -7.5, 23)
+collision_mask = 0
+
+[node name="Wall171" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, -7.5, 23)
+collision_mask = 0
+
+[node name="Wall172" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, -7.5, 23)
+collision_mask = 0
+
+[node name="Wall173" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, -7.5, 23)
+collision_mask = 0
+
+[node name="Wall174" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, -7.5, 23)
+collision_mask = 0
+
+[node name="WallCorner25" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -3.5, 23)
+
+[node name="WallCorner26" parent="Map" instance=ExtResource("1_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -7.5, 23)
+
+[node name="Wall175" parent="Map" instance=ExtResource("1_tipki")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, -7.5, 23)
+collision_mask = 0
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_jkv2x")
+
+[node name="PickableTable" parent="." groups=["pickables"] instance=ExtResource("17_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2539, 0.511949, 0.0632472)
+
+[node name="PickableTable2" parent="." groups=["pickables"] instance=ExtResource("16_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1564, 0.661084, 0)
+
+[node name="FinishArea" type="Area3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1, 1.94, 48.1)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FinishArea"]
+shape = SubResource("BoxShape3D_jbj1t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FinishArea"]
+transform = Transform3D(1.40172, 0, 0, 0, 1.28776, 0, 0, 0, 0.048628, 0, 0, -0.473184)
+material_override = SubResource("StandardMaterial3D_muem4")
+mesh = SubResource("BoxMesh_dp3eg")
+
+[node name="NPC" parent="." instance=ExtResource("18_dp3eg")]
+transform = Transform3D(-0.764573, 0, 0.644537, 0, 1, 0, -0.644537, 0, -0.764573, -3.20459, 1.2, -9.00787)
+LabelPaths = Array[NodePath]([NodePath("../NPCLayer/Chat/PanelContainer/Label"), NodePath("../NPCLayer/Chat/PanelContainer/Label2"), NodePath("../NPCLayer/Chat/PanelContainer/Label3"), NodePath("../NPCLayer/Chat/PanelContainer/Label4"), NodePath("../NPCLayer/Chat/PanelContainer/Label5"), NodePath("../NPCLayer/Chat/PanelContainer/Label6")])
+PanelContainerPath = NodePath("../NPCLayer/Chat/PanelContainer")
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("Target") groups=["targets"] instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0699, 0, 4.89259)
+Target = NodePath("../Player")
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("Target") groups=["targets"] instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.321574, 0.113395, 18.6283)
+Target = NodePath("../Player")
+
+[node name="Enemy5" parent="." instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47072, 0, 15.347)
+AnimationPlayerPath = NodePath("../Enemy/monster/AnimationPlayer")
+
+[node name="Enemy4" parent="." instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0839, 0, 15.347)
+AnimationPlayerPath = NodePath("../Enemy/monster/AnimationPlayer")
+
+[node name="Enemy3" parent="." node_paths=PackedStringArray("Target") groups=["targets"] instance=ExtResource("14_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3802, 0, 15.347)
+Target = NodePath("../Player")
+
+[node name="PickableTable3" parent="." groups=["pickables"] instance=ExtResource("16_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3035, 0.45, 8.6)
+
+[node name="Hint" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 2.756, 0, 0, 0, 0.105, 1, 6.79886, 23.2675)
+material_override = SubResource("StandardMaterial3D_muem4")
+mesh = SubResource("BoxMesh_dp3eg")
+
+[connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]

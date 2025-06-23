@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "026_Tubes_Komgraf", "026_Tubes_Komgraf.csproj", "{7987B1D0-1AD0-4950-AFF5-EDEAB191130F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7987B1D0-1AD0-4950-AFF5-EDEAB191130F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7987B1D0-1AD0-4950-AFF5-EDEAB191130F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7987B1D0-1AD0-4950-AFF5-EDEAB191130F}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{7987B1D0-1AD0-4950-AFF5-EDEAB191130F}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{7987B1D0-1AD0-4950-AFF5-EDEAB191130F}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{7987B1D0-1AD0-4950-AFF5-EDEAB191130F}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

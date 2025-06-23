@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=3 uid="uid://twq8v7t2hgx3"]
+
+[ext_resource type="Script" uid="uid://b4fh0c2yjje0v" path="res://scripts/Parallax/ParallaxBackground.cs" id="1_mj5lg"]
+[ext_resource type="Texture2D" uid="uid://b74g71xr6glto" path="res://assets/ParallaxBG/1.png" id="2_ufwb2"]
+[ext_resource type="Texture2D" uid="uid://dqiwpwquttbng" path="res://assets/ParallaxBG/2.png" id="3_6cdou"]
+[ext_resource type="Texture2D" uid="uid://dh3wodutbd3yn" path="res://assets/ParallaxBG/3.png" id="4_i42df"]
+[ext_resource type="Texture2D" uid="uid://ce06g4mgsr7iw" path="res://assets/ParallaxBG/4.png" id="5_7jp70"]
+[ext_resource type="FontFile" uid="uid://y1rn4ey3ohk2" path="res://assets/Fonts/MontroCital.ttf" id="6_mxgkd"]
+[ext_resource type="FontFile" uid="uid://irp7anmtpdm4" path="res://assets/Fonts/AtemicaSans.otf" id="7_g6gyw"]
+[ext_resource type="Script" uid="uid://uojrn5cidsck" path="res://scripts/Buttons/ChangeSceneButton.cs" id="8_3dmrc"]
+[ext_resource type="PackedScene" uid="uid://cqspofodlx70r" path="res://scenes/main.tscn" id="9_81l6r"]
+[ext_resource type="PackedScene" uid="uid://vj4bw8gqoimp" path="res://scenes/guide.tscn" id="10_rsfmq"]
+[ext_resource type="PackedScene" uid="uid://bpmwe03m2kagt" path="res://scenes/about.tscn" id="11_oi1it"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_mj5lg")
+scrollSpeed = 30.0
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.705887, 0.705887, 0.705887, 1)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_ufwb2")
+centered = false
+
+[node name="Moon" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(30, 0)
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moon"]
+texture_filter = 1
+position = Vector2(-206, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6cdou")
+centered = false
+
+[node name="FarCloud" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.511259, 0.511259, 0.511259, 1)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarCloud"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_i42df")
+centered = false
+
+[node name="NearCloud" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.625597, 0.625597, 0.625597, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearCloud"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("5_7jp70")
+centered = false
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.0
+offset_top = -239.5
+offset_right = 381.0
+offset_bottom = -146.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.393086, 0.393085, 0.393085, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_mxgkd")
+theme_override_font_sizes/font_size = 44
+text = "nusa & the
+sorcerer's ring"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -55.0
+offset_right = 75.5
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="BtnStart" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_g6gyw")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+script = ExtResource("8_3dmrc")
+TargetScene = ExtResource("9_81l6r")
+
+[node name="BtnGuide" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_g6gyw")
+theme_override_font_sizes/font_size = 30
+text = "Guide"
+script = ExtResource("8_3dmrc")
+TargetScene = ExtResource("10_rsfmq")
+
+[node name="BtnAbout" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_g6gyw")
+theme_override_font_sizes/font_size = 30
+text = "About"
+script = ExtResource("8_3dmrc")
+TargetScene = ExtResource("11_oi1it")
+
+[node name="BtnExit" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_g6gyw")
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+script = ExtResource("8_3dmrc")

@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://vj4bw8gqoimp"]
+
+[ext_resource type="Texture2D" uid="uid://b74g71xr6glto" path="res://assets/ParallaxBG/1.png" id="1_ilrfk"]
+[ext_resource type="FontFile" uid="uid://irp7anmtpdm4" path="res://assets/Fonts/AtemicaSans.otf" id="2_g6sor"]
+[ext_resource type="Script" uid="uid://cbxjo1i2tnbhu" path="res://scripts/Buttons/BackToMenu.cs" id="2_iv154"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypr3v"]
+texture = ExtResource("1_ilrfk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bi15"]
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+border_width_left = 20
+border_width_top = 10
+border_width_right = 20
+border_width_bottom = 5
+border_color = Color(0.205117, 0.205117, 0.205117, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Guide" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ypr3v")
+
+[node name="BtnBack" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 130.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("2_g6sor")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4bi15")
+text = "Back"
+script = ExtResource("2_iv154")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.5
+offset_top = 115.0
+offset_right = 118.5
+offset_bottom = 176.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.495509, 0.495509, 0.495509, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_g6sor")
+theme_override_font_sizes/font_size = 60
+text = "Tutorial"
+
+[node name="Description" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.5
+offset_top = -92.0
+offset_right = 382.5
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "1. Tekan \"klik kanan\" untuk berinteraksi
+    dan mengangkat objek tertentu.
+2. Tekan \"klik kiri\" untuk menyerang monster
+3. Tekan tombol Q untuk membuka portal biru
+4. Tekan tombol E untuk membuka portal merah
+5. Jika kedua portal aktif, kamu bisa teleportasi
+    dari portal biru ke merah atau sebaliknya"

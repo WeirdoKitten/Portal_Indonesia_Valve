@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dptw7padm8bw3"]
+
+[ext_resource type="PackedScene" uid="uid://bdifsqaqhaeqp" path="res://assets/models/barrel/barrel.glb" id="1_543ce"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yvls7"]
+size = Vector3(1.72816, 2.00499, 1.71972)
+
+[node name="PickableBarrel" type="RigidBody3D"]
+
+[node name="barrel" parent="." instance=ExtResource("1_543ce")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00167018, 0.999911, -0.0116194)
+shape = SubResource("BoxShape3D_yvls7")
